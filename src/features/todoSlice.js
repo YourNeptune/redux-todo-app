@@ -12,7 +12,7 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     saveTodo: (state, action) => {
-      state.todoList.push(action.payload);
+      // state.todoList.push(action.payload);
     },
     setCheck: (state, action) => {
       state.todoList.map((todo) => {

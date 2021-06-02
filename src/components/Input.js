@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import "./Input.css";
-import { useDispatch } from "react-redux";
-import {saveTodo} from "../features/todoSlice";
+import db from "../firebase";
+import firebase from "firebase";
 
 const Input = () => {
   const [input, setInput] = useState("");
-  const dispatch = useDispatch();
 
   const addTodo = () => {
-    dispatch(
-      saveTodo({
-        item: input,
-        done: false,
-        id: Date.now(),
-      })
-    );
-    setInput('')
+    db.collection("todos").add({
+      item: input,
+      done: false,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    setInput("");
   };
 
   return (

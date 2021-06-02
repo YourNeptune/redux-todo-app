@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-   db.collection("todos").onSnapshot((snapshot) =>
+   db.collection("todos").orderBy('timestamp', 'asc').onSnapshot((snapshot) =>
      dispatch(readTodos(snapshot))
    );
   }, [])
