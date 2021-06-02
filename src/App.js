@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <div className="App__container">
         <div className="App__todoContainer">
-          {todoList.map((todo) => (
+          {todoList && todoList.map((todo) => (
             <TodoItem name={todo.item} done={todo.done} id={todo.id} />
           ))}
         </div>

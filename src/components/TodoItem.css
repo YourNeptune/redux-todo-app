@@ -11,6 +11,15 @@
     flex:1;
 }
 
+.todoItem__deleteButton {
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+.todoItem__deleteButton:hover{
+    color:  #bb371a;
+}
+
 .todoItem--done {
     text-decoration: line-through;
 }
