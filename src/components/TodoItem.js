@@ -11,8 +11,8 @@ const TodoItem = ({ name, done, id }) => {
     dispatch(setCheck(id));
   };
   const handleDelete = () => {
-    dispatch(deleteTodo(id))
-  }
+    dispatch(deleteTodo(id));
+  };
 
   return (
     <div className="todoItem">
@@ -22,9 +22,9 @@ const TodoItem = ({ name, done, id }) => {
         name="checkedF"
         color="primary"
       />
-      <p className={done && "todoItem--done"}>{name}</p>
+      <p className={done ? "todoItem--done" : ""}>{name}</p>
       <div className="todoItem__deleteButton">
-        <DeleteIcon onClick={handleDelete}/>
+        <DeleteIcon onClick={handleDelete} />
       </div>
     </div>
   );

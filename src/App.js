@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Input from "./components/Input";
 import TodoItem from "./components/TodoItem";
-import {useSelector} from 'react-redux'
-import {selectTodoList} from './features/todoSlice'
+import {useDispatch, useSelector} from 'react-redux'
+import {readTodos, selectTodoList} from './features/todoSlice'
+import db from "./firebase";
 
 
 function App() {
   const todoList = useSelector(selectTodoList)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+   db.collection("todos").onSnapshot((snapshot) =>
+     dispatch(readTodos(snapshot))
+   );
+  }, [])
   
   return (
     <div className="App">
       <div className="App__container">
         <div className="App__todoContainer">
           {todoList && todoList.map((todo) => (
-            <TodoItem name={todo.item} done={todo.done} id={todo.id} />
+            <TodoItem name={todo.item} done={todo.done} id={todo.id} key={todo.id}/>
           ))}
         </div>
         <Input />

@@ -22,12 +22,21 @@ const todoSlice = createSlice({
       });
     },
     deleteTodo: (state, action) => {
-      state.todoList = state.todoList.filter((todo) => todo.id !== action.payload);
+      state.todoList = state.todoList.filter(
+        (todo) => todo.id !== action.payload
+      );
+    },
+    readTodos: (state, action) => {
+      state.todoList = action.payload.docs.map((doc) => ({
+        id: doc.id,
+        item: doc.data().item,
+        done: doc.data().done,
+      }));
     },
   },
 });
 
-export const { saveTodo, setCheck, deleteTodo } = todoSlice.actions;
+export const { saveTodo, setCheck, deleteTodo, readTodos } = todoSlice.actions;
 
 export const selectTodoList = (state) => state.todos.todoList;
 
