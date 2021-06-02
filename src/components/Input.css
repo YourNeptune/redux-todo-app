@@ -12,6 +12,8 @@ input {
   background: none;
   border: none;
   flex: 1;
+  padding-left: 1em;
+  font-size: 1em;
 }
 
 input:focus {
