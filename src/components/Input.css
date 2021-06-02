@@ -1,7 +1,7 @@
 .input {
   height: 50px;
   width: 80%;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@ input:focus {
 button{
     border:none;
     border-radius: 10px;
-    background-color:cornsilk;
+    background-color: #f4c7ab;
     margin-right: 10px;
     height: 30px;
     width: 50px;
